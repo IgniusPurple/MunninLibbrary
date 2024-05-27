@@ -47,12 +47,11 @@ http://localhost:3000
 - Bootstrap
 - Node.js
 - Express.js
-- MySQL (ou outro banco de dados de sua preferência)
-- Bibliotecas adicionais (por exemplo, Font Awesome para ícones)
+- MySQL
 
 ## Configuração do Banco de Dados
 
-Antes de iniciar a aplicação, é necessário configurar o banco de dados MySQL. Siga as instruções no arquivo `db.js` para conectar a aplicação ao seu banco de dados local ou remoto.
+Antes de iniciar a aplicação, é necessário configurar o banco de dados MySQL. Siga as instruções no arquivo `db.js` e `config.js` para conectar a aplicação ao seu banco de dados local ou remoto.
 
 
 ## Licença
