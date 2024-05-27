@@ -27,13 +27,16 @@ cd MunninLibrary
 
 3. Instale as dependências:
 
+```bash
 npm init -y
 npm install express mysql2 body-parser bcryptjs jsonwebtoken
-
+```
 
 4. Inicie o servidor:
 
+```bash
 node app.js
+```
 
 
 5. Acesse a aplicação no navegador:
