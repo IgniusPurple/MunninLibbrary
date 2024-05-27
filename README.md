@@ -55,8 +55,9 @@ node app.js
 
 5. Acesse a aplicação no navegador:
 
+```bash
 http://localhost:3000
-
+```
 
 ## Tecnologias Utilizadas
 
