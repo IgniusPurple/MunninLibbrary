@@ -139,31 +139,61 @@ body, input, button {
   margin: 0 auto; /* Centraliza o container horizontalmente */
   padding-top: 10rem; /* Opcional, para dar um espaço entre o topo e o conteúdo */
 }
-
-.carousel {
+/*Carrossel css*/
+.carrosselConteudo {
   display: flex;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
+  height: 30%;
+  margin: 0 6em;
+  overflow: hidden; /* Oculta conteúdo do carrossel que ultrapassa os limites */
 }
 
-.carousel-item .col-md-2 {
-  margin: 1rem; 
-  flex: 0 0 100%;
-  scroll-snap-align: start;
+.swiper-wrapper {
+  display: flex;
+  width: 80vw;
 }
 
-
-.carousel-item img,
-.principal {
-  transition: transform 0.3s ease-in-out, border 0.3s ease-in-out; 
+.swiper-slide img {
+  width: 25vw;
+  transition: transform 0.3s ease-in-out, border 0.3s ease-in-out;
 }
 
-
-.carousel-item img:hover,
-.content img:hover{
+.swiper-slide img:hover{
   transform: scale(1.1);
   border: 2px solid black;
 }
+
+.swiper-button-prev, .swiper-button-next {
+  display: none;
+}
+
+.swiper-pagination {
+  position: initial;
+  margin: .5em 0;
+}
+
+@media screen and (min-width: 1024px) {
+  
+  .swiper-pagination {
+    margin: 2em 0 3em 0;
+  }
+  .swiper {
+    width: 60%;
+  }
+  .swiper-button-next, .swiper-button-prev {
+    display: block;
+    top: 60%;
+  }
+}
+
+@media screen and (min-width: 1728px) {
+  .swiper-slide {
+    margin: 0 2em 5em 3em;
+  }
+  .swiper-button-next, .swiper-button-prev {
+    top: 55%;
+  }
+}
+
 /*Botão*/
 .options-window {
   display: none;
@@ -242,4 +272,3 @@ body, input, button {
   background-color: #495057; /* Cor de fundo do item do dropdown ao passar o mouse */
   color: #fff;
 }
-

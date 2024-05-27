@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
   <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Home</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -9,12 +11,14 @@
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
+
 <body>
   <nav class="navbar navbar-expand-lg custom-navbar fixed-top">
     <a class="navbar-brand" href="#">
-      <img src="/scr/munnin.png" alt="Corvo" style="width: 10em; height: 3em;"> 
+      <img src="/scr/munnin.png" alt="Corvo" style="width: 10em; height: 3em;">
     </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
@@ -30,7 +34,8 @@
           <a class="nav-link" href="#">Comunidade</a>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="userProfileBtn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <a class="nav-link dropdown-toggle" href="#" id="userProfileBtn" data-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="false">
             <i class="fas fa-user-circle"></i>
             <span class="text-white ml-2" id="usernameDisplay"></span>
           </a>
@@ -43,7 +48,8 @@
       </ul>
       <form class="form-inline my-2 my-lg-0 search-bar">
         <div class="input-group rounded">
-          <input class="form-control mr-sm-2" type="search" placeholder="Pesquisar títulos, gêneros, autores" aria-label="Pesquisar">
+          <input class="form-control mr-sm-2" type="search" placeholder="Pesquisar títulos, gêneros, autores"
+            aria-label="Pesquisar">
           <div class="input-group-append">
             <span class="input-group-text bg-dark text-white">
               <img src="/scr/lupa.svg" alt="lupa" style="max-width: 1em;">
@@ -54,46 +60,59 @@
     </div>
   </nav>
   <div class="container custom-container mt-5 black-box">
-    <div class="box" style="background-color: #3E3A42;"> 
-        <h1>Achamos que você vai curtir:</h1>
-        <div class="content">
-            <img src="/scr/anatomia.png" alt="Anatomia Geral" class="float-left mr-3">
-            <div class="text">
-                <h3>Anatomia Geral</h3>
-                <p>Reconhecer os órgãos do corpo humano, e como estes se comportam para a formação dos sistemas, bem como conceitos de posição e variação anatômica, biótipo, características morfológicas e a terminologia anatômica. A Anatomia é a ciência que estuda a constituição e o desenvolvimento dos seres organizados.</p>
-                <div class="additional-content">
-                    <img src="/scr/frank.png" alt="Circle" class="rounded-circle mr-2">
-                    <span>Frank H. Netter</span>
+    <div class="box" style="background-color: #3E3A42;">
+      <h1>Achamos que você vai curtir:</h1>
+      <div class="content">
+        <img src="/scr/anatomia.png" alt="Anatomia Geral" class="float-left mr-3">
+        <div class="text">
+          <h3>Anatomia Geral</h3>
+          <p>Reconhecer os órgãos do corpo humano, e como estes se comportam para a formação dos sistemas, bem como
+            conceitos de posição e variação anatômica, biótipo, características morfológicas e a terminologia anatômica.
+            A Anatomia é a ciência que estuda a constituição e o desenvolvimento dos seres organizados.</p>
+          <div class="additional-content">
+            <img src="/scr/frank.png" alt="Circle" class="rounded-circle mr-2">
+            <span>Frank H. Netter</span>
+          </div>
+        </div>
+        <h4 class="continue-reading-sub mt-4 ml-2">Continuar lendo</h4>
+        <section class="carrossel">
+          <div class="carrosselConteudo">
+            <div class="swiper">
+              <!-- Additional required wrapper -->
+
+              <!-- If we need pagination -->
+              <div class="swiper-pagination"></div>
+
+              <div class="swiper-wrapper">
+                <!-- Slides -->
+                <div class="swiper-slide">
+                  <img src="/scr/medicina.png" class="d-block h-100 w-100" alt="...">
                 </div>
-            </div>
-            <h4 class="continue-reading-sub mt-4 ml-2">Continuar lendo</h4>
-            <div id="carouselExampleControls" class="carousel slide mt-2" data-ride="carousel">
-              <div class="carousel-inner">
-                <div class="carousel-item active">
-                  <div class="row">
-                    <div class="col-md-2">
-                      <img src="/scr/medicina.png" class="d-block h-100 w-100" alt="...">
-                    </div>
-                    <div class="col-md-2">
-                      <img src="/scr/derma.png" class="d-block h-100 w-100" alt="...">
-                    </div>
-                    <div class="col-md-2">
-                      <img src="/scr/nova.png" class="d-block h-100 w-100" alt="...">
-                    </div>
-                    <div class="col-md-2">
-                      <img src="/scr/plants.png" class="d-block h-100 w-100" alt="...">
-                    </div>
-                    <div class="col-md-2">
-                      <img src="/scr/guia_pratico.jpg" class="d-block h-100 w-100" alt="">
-                    </div>
-                    <div class="col-md-2">
-                      <img src="/scr/fragilidades.jpg" class="d-block h-100 w-100" alt="">
-                    </div>
-                  </div>
+                <div class="swiper-slide">
+                  <img src="/scr/derma.png" class="d-block h-100 w-100" alt="...">
+                </div>
+                <div class="swiper-slide">
+                  <img src="/scr/nova.png" class="d-block h-100 w-100" alt="...">
+                </div>
+                <div class="swiper-slide">
+                  <img src="/scr/plants.png" class="d-block h-100 w-100" alt="...">
+                </div>
+                <div class="swiper-slide">
+                  <img src="/scr/guia_pratico.jpg" class="d-block h-100 w-100" alt="">
+                </div>
+                <div class="swiper-slide">
+                  <img src="/scr/fragilidades.jpg" class="d-block h-100 w-100" alt="">
                 </div>
               </div>
+
+              <!-- If we need navigation buttons -->
+              <div class="swiper-button-prev"></div>
+              <div class="swiper-button-next"></div>
+
             </div>
-        </div>
+          </div>  
+        </section>
+      </div>
     </div>
   </div>
 
@@ -101,5 +120,17 @@
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+  <script>
+    const swiper = new Swiper('.swiper', {
+      spaceBetween: 10,
+      slidesPerView: 3,
+      pagination: {
+        el: '.swiper-pagination',
+        type: 'bullets',
+      },
+    });
+  </script>
 </body>
+
 </html>
