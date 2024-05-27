@@ -29,6 +29,8 @@ cd MunninLibrary
 
 ```bash
 npm init -y
+```
+```bash
 npm install express mysql2 body-parser bcryptjs jsonwebtoken
 ```
 
