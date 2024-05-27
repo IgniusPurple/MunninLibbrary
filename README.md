@@ -18,12 +18,15 @@ Muninn Library é uma aplicação web onde os usuários podem explorar uma vasta
 
 1. Clone o repositório para o seu ambiente local:
 
+```bash
 git clone https://github.com/IgniusPurple/MunninLibbrary.git
+```
 
 2. Navegue até o diretório do projeto:
 
+```bash
 cd MunninLibrary
-
+```
 
 3. Instale as dependências:
 
