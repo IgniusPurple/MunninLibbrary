@@ -1,4 +1,4 @@
-# MunninLibbrary
+# MunninLibrary
 
 Bem-vindo ao Muninn Library, uma aplicação de biblioteca virtual para explorar, descobrir e ler uma variedade de livros online de forma gameficada.
 
