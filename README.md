@@ -1,10 +1,10 @@
 # MunninLibbrary
 
-Bem-vindo ao Muninn Library, uma aplicação de biblioteca virtual para explorar, descobrir e ler uma variedade de livros online.
+Bem-vindo ao Muninn Library, uma aplicação de biblioteca virtual para explorar, descobrir e ler uma variedade de livros online de forma gameficada.
 
 ## Descrição
 
-Muninn Library é uma aplicação web onde os usuários podem explorar uma vasta coleção de livros de diferentes gêneros, autores e temas. Eles podem ler livros online, participar de eventos relacionados a livros e interagir com a comunidade de leitores.
+ A iniciativa Muninn tem como principal objetivo facilitar e tornar conveniente a leitura com a aplicação de métodos de pesquisa eficientes, de forma que o usuário reserve seu tempo de leitura e não tenha que compartilhá-lo com a busca por seu conteúdo. Além de ler livros, também gasta seu tempo em suas resenhas com outros usuários, podendo armazenar os que o usuário já possui fora da plataforma, para concentrar todo o conteúdo em um só lugar.
 
 ## Recursos
 
@@ -13,6 +13,15 @@ Muninn Library é uma aplicação web onde os usuários podem explorar uma vasta
 - Ler livros online
 - Participar de eventos relacionados a livros
 - Interagir com a comunidade de leitores
+
+## Participantes
+
+- Eduardo Zoldan Debastiani - 2210169
+- Lucas Oliveira Santiago - 2210370
+- Luis Felipe Borges Rosa - 2211829
+- Rafael Luiz Pires Lima - 2211814
+- Gustavo Maia Moreira - 2211155
+- Matheus de Paula Costa Cavalcante - 2210950
 
 ## Instalação
 
