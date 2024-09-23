@@ -46,6 +46,7 @@ Certifique-se de que você tenha instalado as seguintes ferramentas:
 ```bash
 git clone https://github.com/IgniusPurple/MunninLibbrary.git
 cd MunninLibbrary
+```
 
 ### 2. Configurar o Banco de Dados
 
