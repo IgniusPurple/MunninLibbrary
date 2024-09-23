@@ -23,54 +23,43 @@ Bem-vindo ao Muninn Library, uma aplicação de biblioteca virtual para explorar
 - Gustavo Maia Moreira - 2211155
 - Matheus de Paula Costa Cavalcante - 2210950
 
-## Instalação
+## Tecnologias Utilizadas
 
-1. Clone o repositório para o seu ambiente local:
+- Ruby on Rails (API Mode)
+- PostgreSQL
+- JWT (JSON Web Tokens) para autenticação
+- BCrypt para hash de senhas
+
+## Pré-requisitos
+
+Certifique-se de que você tenha instalado as seguintes ferramentas:
+
+- Ruby (>= 2.7)
+- Rails (>= 6.1)
+- PostgreSQL
+- Bundler
+
+## Passos para Configuração
+
+### 1. Clonar o Repositório
 
 ```bash
 git clone https://github.com/IgniusPurple/MunninLibbrary.git
+cd MunninLibbrary
+
+### 2. Configurar o Banco de Dados
+
+``` bash
+rails db:create
+rails db:migrate
 ```
 
-2. Navegue até o diretório do projeto:
+Nao esqueca de criar um arquivo .env com a senha do seu banco
 
-```bash
-cd MunninLibrary
+Ex:
+``` bash
+MUNINN_LIBRARY_DATABASE_PASSWORD="sua_senha"
 ```
-
-3. Instale as dependências:
-
-```bash
-npm init -y
-```
-```bash
-npm install express mysql2 body-parser bcryptjs jsonwebtoken
-```
-
-4. Inicie o servidor:
-
-```bash
-node app.js
-```
-
-
-5. Acesse a aplicação no navegador:
-
-```bash
-http://localhost:3000
-```
-
-## Tecnologias Utilizadas
-
-- HTML, CSS, JavaScript
-- Bootstrap
-- Node.js
-- Express.js
-- MySQL
-
-## Configuração do Banco de Dados
-
-Antes de iniciar a aplicação, é necessário configurar o banco de dados MySQL. Siga as instruções no arquivo `db.js` e `config.js` para conectar a aplicação ao seu banco de dados local ou remoto.
-
 
 ## Licença
 
