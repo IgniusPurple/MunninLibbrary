@@ -49,10 +49,6 @@ cd MunninLibbrary
 
 ### 2. Configurar o Banco de Dados
 
-``` bash
-rails db:create
-rails db:migrate
-```
 
 Nao esqueca de criar um arquivo .env com as senhas e usuarios do seu banco
 
@@ -64,6 +60,12 @@ POSTGRES_PASSWORD='sua_senha_para_teste'
 MUNINN_LIBRARY_DATABASE_USER='seu_usuario'
 MUNINN_LIBRARY_DATABASE_PASSWORD='sua_senha'
 
+```
+Criando as tabelas e os bancos de dados:
+
+``` bash
+rails db:create
+rails db:migrate
 ```
 
 ### 3. Iniciando Servidor
