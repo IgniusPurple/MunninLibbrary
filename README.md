@@ -27,7 +27,6 @@ Bem-vindo ao Muninn Library, uma aplicação de biblioteca virtual para explorar
 
 - Ruby on Rails (API Mode)
 - PostgreSQL
-- JWT (JSON Web Tokens) para autenticação
 - BCrypt para hash de senhas
 
 ## Pré-requisitos
