@@ -8,6 +8,12 @@
 .DS_Store
 .AppleDouble
 .LSOverride
+.github
+.gitattributes
+.dockerignore
+.rubocop.yml
+.ruby-version
+
 
 # Icon must end with two \r
 Icon
