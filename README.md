@@ -61,6 +61,12 @@ Ex:
 MUNINN_LIBRARY_DATABASE_PASSWORD="sua_senha"
 ```
 
+### 3. Iniciando Servidor
+
+``` bash
+raails server
+```
+
 ## Licença
 
 Este projeto é licenciado sob a [Licença MIT](https://opensource.org/licenses/MIT).
