@@ -54,11 +54,16 @@ rails db:create
 rails db:migrate
 ```
 
-Nao esqueca de criar um arquivo .env com a senha do seu banco
+Nao esqueca de criar um arquivo .env com as senhas e usuarios do seu banco
 
 Ex:
 ``` bash
-MUNINN_LIBRARY_DATABASE_PASSWORD="sua_senha"
+POSTGRES_USER='seu_usuario_para_teste'
+POSTGRES_PASSWORD='sua_senha_para_teste'
+
+MUNINN_LIBRARY_DATABASE_USER='seu_usuario'
+MUNINN_LIBRARY_DATABASE_PASSWORD='sua_senha'
+
 ```
 
 ### 3. Iniciando Servidor
