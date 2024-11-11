@@ -74,6 +74,15 @@ rails db:migrate
 raails server
 ```
 
+### 4. Frontend
+
+Para rodar o frontend você precisará ir para a pasta client e rodar os comandos:
+
+``` bash
+npm install
+npm run dev
+```
+
 ## Licença
 
 Este projeto é licenciado sob a [Licença MIT](https://opensource.org/licenses/MIT).
