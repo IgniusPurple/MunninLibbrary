@@ -1,0 +1,34 @@
+/* src/reset.css */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    font-family: 'Poppins', sans-serif; /* Define Poppins como fonte padrão */
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block; /* Garante que as imagens não sejam elementos em linha */
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin-bottom: 1rem; /* Espaçamento padrão entre títulos */
+}
+
+a {
+    text-decoration: none; /* Remove o sublinhado dos links */
+}
+
+button {
+    cursor: pointer; /* Muda o cursor ao passar o mouse sobre botões */
+}
+
+/* Adicione mais regras conforme necessário */
