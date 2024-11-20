@@ -7,9 +7,7 @@ export const RecommendationWrapper = styled.div`
 
     overflow: hidden;
     
-    margin: auto;
-    margin-top: 5%;
-    
+    margin: auto;    
     h2 {
         font-size: 2rem;
         color: #C8C2C2;
