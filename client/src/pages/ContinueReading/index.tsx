@@ -4,7 +4,7 @@ import Header from "../../components/header"
 import Recommendations from "../../components/recomendations";
 import { Wrapper } from "./styles";
 
-const Profile: React.FC = () => {
+const ContinueReading: React.FC = () => {
     const headerRef = useRef<HTMLDivElement>(null);
     const [mainHeight, setMainHeight] = useState<number | undefined>(undefined);
     
@@ -34,4 +34,4 @@ const Profile: React.FC = () => {
     )
 }
 
-export default Profile;
+export default ContinueReading;
