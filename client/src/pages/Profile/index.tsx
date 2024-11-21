@@ -1,5 +1,6 @@
 import Header from "../../components/header"
 import LastRead from "../../components/LastRead";
+import Online from "../../components/Online";
 import { ProfileInfos, ProfileInfosWrapper } from "./styles";
 
 const Profile: React.FC = () => {
@@ -40,6 +41,7 @@ const Profile: React.FC = () => {
                     </div>
                     <LastRead />
                 </ProfileInfos>
+                <Online />
             </ProfileInfosWrapper>
         </>
     )

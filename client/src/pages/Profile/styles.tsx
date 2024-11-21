@@ -8,8 +8,11 @@ export const ProfileInfosWrapper = styled.main`
     overflow: hidden;
     
     margin: auto;    
+
+    display: flex;
+    gap: 0.75rem;
 `
 
 export const ProfileInfos = styled.div`
-    
+
 `
