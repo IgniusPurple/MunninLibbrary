@@ -9,6 +9,10 @@ export const LastReadWrapper = styled.div`
     padding: 0.75rem;
     gap: 0.75rem;
 
+    border-style: solid;
+    border-width: 1px;
+    border-color: #97D2EC;
+
     img {
         width: 11rem;
     }
