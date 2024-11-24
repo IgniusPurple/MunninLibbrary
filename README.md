@@ -22,12 +22,15 @@ Bem-vindo ao Muninn Library, uma aplicação de biblioteca virtual para explorar
 - Rafael Luiz Pires Lima - 2211814
 - Gustavo Maia Moreira - 2211155
 - Matheus de Paula Costa Cavalcante - 2210950
+- Hercules Gabriel Araújo Câmara - 2310953
 
 ## Tecnologias Utilizadas
 
 - Ruby on Rails (API Mode)
 - PostgreSQL
 - BCrypt para hash de senhas
+- Node
+- React
 
 ## Pré-requisitos
 
@@ -37,6 +40,9 @@ Certifique-se de que você tenha instalado as seguintes ferramentas:
 - Rails (>= 6.1)
 - PostgreSQL
 - Bundler
+- [Node.js](https://nodejs.org/) (versão 14 ou superior)
+- [npm](https://www.npmjs.com/)
+- [React](https://reactjs.org/docs/getting-started.html) [React Bootstrap e Bootstrap]
 
 ## Passos para Configuração
 
@@ -71,7 +77,7 @@ rails db:migrate
 ### 3. Iniciando Servidor
 
 ``` bash
-raails server
+rails server
 ```
 
 ### 4. Frontend
@@ -79,6 +85,8 @@ raails server
 Para rodar o frontend você precisará ir para a pasta client e rodar os comandos:
 
 ``` bash
+cd client
+
 npm install
 npm run dev
 ```
