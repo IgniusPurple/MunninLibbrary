@@ -1,4 +1,5 @@
 import axios from "axios";
+import API_URL from "../config/apiconfig";
 
 interface LoginParams {
   email: string;
@@ -7,20 +8,12 @@ interface LoginParams {
 
 export const sessionsService = {
   login: async (params: LoginParams) => {
-    try {
-      const response = await axios.post("/sessions", params);
-      return response.data;
-    } catch (error: any) {
-      throw error.response?.data || { message: "An error occurred while logging in" };
-    }
+    const response = await axios.post(`${API_URL}/sessions`, params);
+    return response.data;
   },
 
   logout: async () => {
-    try {
-      const response = await axios.delete("/sessions");
-      return response.data;
-    } catch (error: any) {
-      throw error.response?.data || { message: "An error occurred while logging out" };
-    }
+    const response = await axios.delete(`${API_URL}/sessions`);
+    return response.data;
   },
 };

@@ -1,4 +1,5 @@
 import axios from "axios";
+import API_URL from "../config/apiconfig";
 
 interface User {
   id?: number;
@@ -10,67 +11,37 @@ interface User {
 
 export const usersService = {
   getUsers: async () => {
-    try {
-      const response = await axios.get("/users");
-      return response.data;
-    } catch (error: any) {
-      throw error.response?.data || { message: "An error occurred while fetching users" };
-    }
+    const response = await axios.get(`${API_URL}/users`);
+    return response.data;
   },
+
   getUser: async (userId: number) => {
-    try {
-      const response = await axios.get(`/api/users/${userId}`);
-      return response.data; // Retorna os dados do usuário
-    } catch (error) {
-      throw new Error('Erro ao carregar dados do usuário');
-    }
+    const response = await axios.get(`${API_URL}/users/${userId}`);
+    return response.data;
   },
 
   createUser: async (user: User) => {
-    try {
-      const response = await axios.post("/users", user);
-      return response.data;
-    } catch (error: any) {
-      throw error.response?.data || { message: "An error occurred while creating the user" };
-    }
+    const response = await axios.post(`${API_URL}/users`, user);
+    return response.data;
   },
 
   updateUser: async (id: number, user: User) => {
-    try {
-      const response = await axios.put(`/users/${id}`, user);
-      return response.data;
-    } catch (error: any) {
-      throw error.response?.data || { message: "An error occurred while updating the user" };
-    }
+    const response = await axios.put(`${API_URL}/users/${id}`, user);
+    return response.data;
   },
 
   deleteUser: async (id: number) => {
-    try {
-      const response = await axios.delete(`/users/${id}`);
-      return response.data;
-    } catch (error: any) {
-      throw error.response?.data || { message: "An error occurred while deleting the user" };
-    }
+    const response = await axios.delete(`${API_URL}/users/${id}`);
+    return response.data;
   },
-  
-};
 
-// Função para obter o perfil do usuário
-export const getUserProfile = async () => {
-  try {
-    const response = await axios.get('/api/user/profile'); // Substitua pela URL de sua API
+  getUserProfile: async () => {
+    const response = await axios.get(`${API_URL}/user/profile`);
     return response.data;
-  } catch (error) {
-    throw new Error('Erro ao buscar perfil.');
-  }
-};
+  },
 
-// Função para atualizar o perfil do usuário
-export const updateUserProfile = async (userData: any) => {
-  try {
-    const response = await axios.put('/api/user/profile', userData); // Substitua pela URL de sua API
+  updateUserProfile: async (userData: any) => {
+    const response = await axios.put(`${API_URL}/user/profile`, userData);
     return response.data;
-  } catch (error) {
-    throw new Error('Erro ao atualizar perfil.');
-  }
+  },
 };
