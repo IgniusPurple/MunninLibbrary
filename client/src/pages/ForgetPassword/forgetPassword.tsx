@@ -17,8 +17,15 @@ const ForgetPassword: React.FC = () => {
   // Ref com tipo explicitamente definido como HTMLInputElement ou null
   const inputRefs = useRef<(HTMLInputElement | null)[]>([]);
 
+
+  const  validateEmail = (email: string)  => {
+    // Todo: Implementar uma validação de e-mail mais robusta, regex é sempre um problema no futuro
+    var re = /\S+@\S+\.\S+/;
+    return re.test(email);
+  }
+
   const handleEmailSubmit = () => {
-    if (email.includes('@')) {
+    if (validateEmail(email)) {
       setCodeSent(true);
       setError('');
     } else {
@@ -39,6 +46,7 @@ const ForgetPassword: React.FC = () => {
       }
     }
   };
+
 
   const handlePasswordChange = async () => {
     setError('');
