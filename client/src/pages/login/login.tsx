@@ -1,8 +1,9 @@
-// src/components/Login.tsx
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Button, Form, Card, InputGroup } from 'react-bootstrap';
 import { Eye, EyeSlash } from 'phosphor-react';
+import { login } from '../../services/authService';
+
 import './styles.css';
 import corvoImg from '../../assets/corvo.png';
 
@@ -16,13 +17,19 @@ const Login: React.FC = () => {
     setPasswordVisible((prev) => !prev);
   };
 
-  const handleLogin = (e: React.FormEvent) => {
+  const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (email === 'usuario@example.com' && password === '123456') {
-      navigate('/home'); 
-    } else {
-      alert('Email ou senha incorretos.');
+    try {
+      const isAuthenticated = await login(email, password);
+      if (isAuthenticated) {
+        navigate('/home'); 
+      } else {
+        alert('Email ou senha incorretos.');
+      }
+    } catch (error) {
+      console.error('Erro ao autenticar:', error);
+      alert('Ocorreu um erro ao tentar realizar o login.');
     }
   };
 
@@ -76,4 +83,3 @@ const Login: React.FC = () => {
 };
 
 export default Login;
-

@@ -1,40 +1,55 @@
 import { BookProgress, InfosBookProgress, LastReadWrapper, ProgressBar } from "./styles";
-
-import bookCover from "../../assets/medicina.png"
 import { useEffect, useState } from "react";
+import { getBooks } from "../../services/booksService";
 
 const LastRead: React.FC = () => {
-    const [progressInPercents, setProgressInPercents] = useState<number>()
-    const [totalPages, setTotalPages ] = useState<number>(416)
-    const [pagesRead, setPagesRead] = useState<number>(114)
+    const [progressInPercents, setProgressInPercents] = useState<number>();
+    const [totalPages, setTotalPages] = useState<number>(0);
+    const [pagesRead, setPagesRead] = useState<number>(0);
+    const [book, setBook] = useState<any>(null);
 
     useEffect(() => {
-        const pagesReadPercents = () => {
+        const fetchBooks = async () => {
+            try {
+                const books = await getBooks();
+                if (books.length > 0) {
+                    setBook(books[0]); // Assume que o primeiro livro é o último lido
+                    setTotalPages(books[0].totalPages || 0);
+                    setPagesRead(books[0].pagesRead || 0);
+                }
+            } catch (error) {
+                console.error("Failed to fetch books:", error);
+            }
+        };
+        fetchBooks();
+    }, []);
+
+    useEffect(() => {
+        if (totalPages > 0) {
             const totalConverted = (100 * pagesRead) / totalPages;
             setProgressInPercents(totalConverted);
         }
-        pagesReadPercents();
-    })
+    }, [totalPages, pagesRead]);
 
     return (
-        <LastReadWrapper>
-            <img src={bookCover} alt="" />
-            <InfosBookProgress>
-                <h4>
-                    Medicina Macabra 2
-                </h4>
-                <span>4.0 hora(s) registradas</span>
-                <span>Última vez lido em 7 de set.</span>
+        book && (
+            <LastReadWrapper>
+                <img src={book.cover || ""} alt={book.title} />
+                <InfosBookProgress>
+                    <h4>{book.title}</h4>
+                    <span>{book.readingTime || "0"} hora(s) registradas</span>
+                    <span>Última vez lido em {book.lastReadDate || "N/A"}</span>
 
-                <BookProgress>
-                    <span>
-                        <strong>Progresso de leitura</strong> 114 de 416
-                    </span>
-                    <ProgressBar progress={progressInPercents as number}/>
-                </BookProgress>
-            </InfosBookProgress>
-        </LastReadWrapper>
-    )
-}
+                    <BookProgress>
+                        <span>
+                            <strong>Progresso de leitura</strong> {pagesRead} de {totalPages}
+                        </span>
+                        <ProgressBar progress={progressInPercents || 0} />
+                    </BookProgress>
+                </InfosBookProgress>
+            </LastReadWrapper>
+        )
+    );
+};
 
 export default LastRead;

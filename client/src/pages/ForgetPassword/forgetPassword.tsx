@@ -1,8 +1,8 @@
-// src/components/ForgetPassword.tsx
+// src/pages/ForgetPassword.tsx
 import React, { useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Form, Button, InputGroup } from 'react-bootstrap';
-import './styles.css';
+import { resetPassword } from '../../services/authService'; // Atualizado para importar o serviço de reset
 
 const ForgetPassword: React.FC = () => {
   const navigate = useNavigate();
@@ -13,6 +13,8 @@ const ForgetPassword: React.FC = () => {
   const [confirmPassword, setConfirmPassword] = useState('');
   const [error, setError] = useState('');
   const [successMessage, setSuccessMessage] = useState('');
+  
+  // Ref com tipo explicitamente definido como HTMLInputElement ou null
   const inputRefs = useRef<(HTMLInputElement | null)[]>([]);
 
   const handleEmailSubmit = () => {
@@ -38,20 +40,24 @@ const ForgetPassword: React.FC = () => {
     }
   };
 
-  const handlePasswordChange = () => {
+  const handlePasswordChange = async () => {
     setError('');
     setSuccessMessage('');
 
     if (verificationCode.includes('')) {
       setError('Preencha o código.');
     } else if (newPassword !== confirmPassword) {
-      setError('As senhas não correspondem.');
+      setError('As senhas não coincidem.');
     } else if (!newPassword || !confirmPassword) {
       setError('As senhas devem ser preenchidas.');
     } else {
-      setSuccessMessage('Senha alterada com sucesso!');
-      setError('');
-      setTimeout(() => navigate('/'), 1300);
+      try {
+        await resetPassword(email, newPassword);  // Integrando o serviço de reset de senha
+        setSuccessMessage('Senha alterada com sucesso!');
+        setTimeout(() => navigate('/login'), 1300);
+      } catch (err) {
+        setError('Erro ao redefinir a senha.');
+      }
     }
   };
 
@@ -81,7 +87,7 @@ const ForgetPassword: React.FC = () => {
               {verificationCode.map((digit, index) => (
                 <Form.Control
                   key={index}
-                  ref={(el) => (inputRefs.current[index] = el)}
+                  ref={(el: HTMLInputElement | null) => (inputRefs.current[index] = el)}  // Tipo de 'el' explicitamente definido
                   type="text"
                   maxLength={1}
                   value={digit}
@@ -124,4 +130,3 @@ const ForgetPassword: React.FC = () => {
 };
 
 export default ForgetPassword;
-

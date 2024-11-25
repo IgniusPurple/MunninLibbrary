@@ -1,27 +1,35 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { MagnifyingGlass } from 'phosphor-react';
 import { Navbar, Nav, Form, Dropdown, Container, Row, Col, Carousel } from 'react-bootstrap';
+import { getBooks } from "../../services/booksService";
+import { Link } from 'react-router-dom';
 import './styles.css';
 import muninnImg from '../../assets/munnin.png';
 import laisImg from '../../assets/lais.png';
-import anatomiaImg from '../../assets/anatomia.png';
-import medicinaImg from '../../assets/medicina.png';
-import dermaImg from '../../assets/derma.png';
-import novaImg from '../../assets/nova.png';
-import plantsImg from '../../assets/plants.png';
-import guiaPraticoImg from '../../assets/guia_pratico.jpg';
 import backImg from '../../assets/back.jpeg';
-import frank from '../../assets/frank.png';
-import { Link } from 'react-router-dom';
 
 const Home: React.FC = () => {
+  const [books, setBooks] = useState<any[]>([]);
+
+  useEffect(() => {
+      const fetchBooks = async () => {
+          try {
+              const booksData = await getBooks();
+              setBooks(booksData);
+          } catch (error) {
+              console.error("Failed to fetch books:", error);
+          }
+      };
+      fetchBooks();
+  }, []);
+
   return (
     <div className="home" style={{ backgroundImage: `url(${backImg})` }}>
       <Navbar bg="dark" variant="dark" expand="lg" fixed="top" className="px-3">
         <Navbar.Brand href="#">
           <img src={muninnImg} alt="Corvo" className="logo" />
         </Navbar.Brand>
-        <Form inline className="mx-3 my-2 search-bar">
+        <Form form-inline className="mx-3 my-2 search-bar">
           <div className="position-relative">
             <MagnifyingGlass size={20} color="#666" className="search-icon" />
             <Form.Control
@@ -40,7 +48,6 @@ const Home: React.FC = () => {
           </Nav>
         </Navbar.Collapse>
         <div className="d-flex align-items-center gap-2 user-info">
-        <div className="d-flex justify-content-start">
           <Dropdown>
             <Dropdown.Toggle variant="link" id="dropdown-basic" style={{ padding: 0 }}>
               <img src={laisImg} alt="Laís" className="rounded-circle" style={{ width: '40px', height: '40px' }} />
@@ -52,7 +59,6 @@ const Home: React.FC = () => {
               <Dropdown.Item href="/">Sair</Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
-        </div>
           <span className="text-white ml-2 mb-3">Laís</span>
         </div>
       </Navbar>
@@ -60,29 +66,20 @@ const Home: React.FC = () => {
       <Container className="mt-5 pt-5 black-box">
         <div className="box">
           <h1>Achamos que você vai curtir:</h1>
-          <div className="content">
-            <img src={anatomiaImg} alt="Anatomia Geral" className="float-left mr-3" />
-            <div className="text">
-              <h3>Anatomia Geral</h3>
-              <p>Reconhecer os órgãos do corpo humano, e como estes se comportam para a formação dos sistemas...</p>
-              <div className="additional-content">
-                <img src={frank} alt="Circle" className="rounded-circle mr-4" />
-                <span>Frank H. Netter</span>
-              </div>
-            </div>
-            <h4 className="continue-reading-sub mt-4 ml-2">Continuar lendo</h4>
-            <Carousel controls={false} indicators={false} className="mt-2">
-              <Carousel.Item>
-                <Row>
-                  <Col md={2}><img src={medicinaImg} className="d-block w-100" alt="Medicina" /></Col>
-                  <Col md={2}><img src={dermaImg} className="d-block w-100" alt="Derma" /></Col>
-                  <Col md={2}><img src={novaImg} className="d-block w-100" alt="Nova" /></Col>
-                  <Col md={2}><img src={plantsImg} className="d-block w-100" alt="Plants" /></Col>
-                  <Col md={2}><img src={guiaPraticoImg} className="d-block w-100" alt="Guia Prático" /></Col>
-                </Row>
-              </Carousel.Item>
-            </Carousel>
-          </div>
+          <Carousel controls={false} indicators={false} className="mt-2">
+            <Carousel.Item>
+              <Row>
+                {books.map((book) => (
+                  <Col md={2} key={book.id}>
+                    <div className="book-card">
+                      <img src={book.cover || backImg} className="d-block w-100" alt={book.title} />
+                      <p>{book.title}</p>
+                    </div>
+                  </Col>
+                ))}
+              </Row>
+            </Carousel.Item>
+          </Carousel>
         </div>
       </Container>
     </div>

@@ -1,49 +1,68 @@
-import recomendationBanner from "../../assets/anatomia.png"
-import writterPhoto from "../../assets/frank.png"
-import medicina from "../../assets/medicina.png"
-import derma from "../../assets/derma.png"
-import nova from "../../assets/nova.png"
-import plants from "../../assets/plants.png"
+import { useEffect, useState } from "react";
+import { getBooks } from "../../services/booksService";
+import {
+    Highlighted,
+    ReadingList,
+    ReadingWrapper,
+    RecommendationWrapper,
+    Writter,
+} from "./styles";
 
-
-import { Highlighted, ReadingList, ReadingWrapper, RecommendationWrapper, Writter } from "./styles";
 const Recommendations: React.FC = () => {
+    const [books, setBooks] = useState<any[]>([]);
+    const [highlightedBook, setHighlightedBook] = useState<any | null>(null);
+
+    useEffect(() => {
+        const fetchBooks = async () => {
+            try {
+                const booksData = await getBooks();
+                setBooks(booksData);
+                if (booksData.length > 0) {
+                    setHighlightedBook(booksData[0]); // Define o primeiro livro como destaque
+                }
+            } catch (error) {
+                console.error("Failed to fetch books:", error);
+            }
+        };
+        fetchBooks();
+    }, []);
+
     return (
         <RecommendationWrapper>
             <h2>Achamos que você vai curtir:</h2>
 
-            <Highlighted>
-                <img src={recomendationBanner} alt="" />
-                <div>
-                <div>
-                    <h3>Anatomia Geral</h3>
-                    <p>
-                        Reconhecer os órgãos do corpo humano, e como estes se comportam para a formação dos sistemas, 
-                        bem como conceitos de posição e variação anatômica, biótipo, características morfológicas e 
-                        a terminologia anatômica. A Anatomia é a ciência que estuda a constituição e o desenvolvimento 
-                        dos seres organizados.
-                    </p>
-                </div>
-                <Writter>
-                    <img src={writterPhoto} alt="" />
-                    <span>Frank H. Netter</span>
-                </Writter>
-                </div>
-            </Highlighted>
+            {highlightedBook && (
+                <Highlighted>
+                    <img src={highlightedBook.cover || ""} alt={highlightedBook.title} />
+                    <div>
+                        <div>
+                            <h3>{highlightedBook.title}</h3>
+                            <p>{highlightedBook.description || "Descrição não disponível."}</p>
+                        </div>
+                        <Writter>
+                            <img src={highlightedBook.authorPhoto || ""} alt={highlightedBook.author} />
+                            <span>{highlightedBook.author || "Autor desconhecido"}</span>
+                        </Writter>
+                    </div>
+                </Highlighted>
+            )}
 
             <ReadingWrapper>
                 <h2>Continuar lendo</h2>
 
                 <ReadingList>
-                    <img src={medicina} alt="" />
-                    <img src={derma} alt="" />
-                    <img src={nova} alt="" />
-                    <img src={plants} alt="" />
+                    {books.slice(1, 5).map((book) => (
+                        <img
+                            key={book.id}
+                            src={book.cover || ""}
+                            alt={book.title}
+                            title={book.title}
+                        />
+                    ))}
                 </ReadingList>
             </ReadingWrapper>
         </RecommendationWrapper>
-    )
-
-}
+    );
+};
 
 export default Recommendations;

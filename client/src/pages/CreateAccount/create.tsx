@@ -1,8 +1,8 @@
-// src/components/Register.tsx
+// src/pages/CreateAccount.tsx
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Form, Button } from 'react-bootstrap';
-import './styles.css';
+import { createAccount } from '../../services/authService'; // Atualizado para usar o serviço de criação de conta
 
 const CreateAccount: React.FC = () => {
   const [name, setName] = useState('');
@@ -11,6 +11,7 @@ const CreateAccount: React.FC = () => {
   const [confirmPassword, setConfirmPassword] = useState('');
   const [termsAccepted, setTermsAccepted] = useState(false);
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
+  const navigate = useNavigate();
 
   const validateForm = () => {
     const newErrors: { [key: string]: string } = {};
@@ -26,13 +27,16 @@ const CreateAccount: React.FC = () => {
     return Object.keys(newErrors).length === 0;
   };
 
-  const navigate = useNavigate();
-
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (validateForm()) {
-      alert('Conta criada com sucesso!');
-      navigate('/');
+      try {
+        await createAccount(name, email, password);  // Chamando o serviço de criação de conta
+        alert('Conta criada com sucesso!');
+        navigate('/login');
+      } catch (error) {
+        alert('Erro ao criar conta');
+      }
     }
   };
 
@@ -52,7 +56,6 @@ const CreateAccount: React.FC = () => {
               />
               {errors.name && <div className="text-danger">{errors.name}</div>}
             </Form.Group>
-
             <Form.Group className="mb-3" controlId="email">
               <Form.Label>Email</Form.Label>
               <Form.Control
@@ -63,7 +66,6 @@ const CreateAccount: React.FC = () => {
               />
               {errors.email && <div className="text-danger">{errors.email}</div>}
             </Form.Group>
-
             <Form.Group className="mb-3" controlId="password">
               <Form.Label>Senha</Form.Label>
               <Form.Control
@@ -74,7 +76,6 @@ const CreateAccount: React.FC = () => {
               />
               {errors.password && <div className="text-danger">{errors.password}</div>}
             </Form.Group>
-
             <Form.Group className="mb-3" controlId="confirmPassword">
               <Form.Label>Confirme sua senha</Form.Label>
               <Form.Control
@@ -85,7 +86,6 @@ const CreateAccount: React.FC = () => {
               />
               {errors.confirmPassword && <div className="text-danger">{errors.confirmPassword}</div>}
             </Form.Group>
-
             <Form.Group className="mb-3" controlId="terms">
               <Form.Check
                 type="checkbox"
@@ -95,7 +95,6 @@ const CreateAccount: React.FC = () => {
               />
               {errors.terms && <div className="text-danger">{errors.terms}</div>}
             </Form.Group>
-
             <Button type="submit" variant="primary" className="w-100">
               Criar Conta
             </Button>
